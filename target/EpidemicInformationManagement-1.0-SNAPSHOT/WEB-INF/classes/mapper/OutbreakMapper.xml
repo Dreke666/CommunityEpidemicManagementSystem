@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.OutbreakMapper">
+    <insert id="addOutbreak"  parameterType="com.Drake.SSM_sys.bean.Outbreak" >
+        insert into  Outbreak values (null ,#{localtion},#{risklevel},#{content})
+    </insert>
+    <delete id="deleteOutbreakById" parameterType="int">
+        delete  from Outbreak where  Outbreakid=#{id}
+    </delete>
+    <select id="findAllOutbreakByPage" resultType="com.Drake.SSM_sys.bean.Outbreak">
+        select * from Outbreak
+    </select>
+    <select id="findOutbreakById" parameterType="int" resultType="com.Drake.SSM_sys.bean.Outbreak">
+        select  * from outbreak where outbreakid=#{id}
+    </select>
+    <update id="updateOutbreak" parameterType="com.Drake.SSM_sys.bean.Outbreak">
+        update  Outbreak set localtion=#{localtion},risklevel=#{risklevel},content=#{content} where outbreakid=#{outbreakid}
+    </update>
+</mapper>

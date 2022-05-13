@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.LoginMapper">
+    <select id="userLogin" resultType="com.Drake.SSM_sys.bean.User" parameterType="com.Drake.SSM_sys.bean.User">
+        select  * from User where username=#{username} and password=#{password}
+    </select>
+
+    <select id="adminLogin" resultType="com.Drake.SSM_sys.bean.Admin" parameterType="com.Drake.SSM_sys.bean.Admin">
+        select  * from admin where username=#{username} and password=#{password}
+    </select>
+</mapper>

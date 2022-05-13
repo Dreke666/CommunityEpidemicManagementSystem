@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.GuideLinesMapper">
+
+
+    <select id="findGuidelines" resultType="com.Drake.SSM_sys.bean.Guidelines">
+        select * from Guidelines where gid=1
+    </select>
+    <update id="updateGuideLines" parameterType="com.Drake.SSM_sys.bean.Guidelines">
+        update  Guidelines set content=#{content} where gid=1
+    </update>
+    <select id="findAllGuidelinesByPage" resultType="com.Drake.SSM_sys.bean.Guidelines">
+           select * from Guidelines where gid=1
+    </select>
+</mapper>

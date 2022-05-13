@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.ReportMapper">
+    <insert id="addReport"  parameterType="com.Drake.SSM_sys.bean.Report" >
+        insert into  Report values (null ,#{comefromidlevel},#{traffic},#{temperature},#{acidresults},#{quarantinelocation},
+                                    #{quarantinedays},#{finalacidresults},#{username})
+    </insert>
+    <delete id="deleteReportById" parameterType="int">
+        delete  from Report where  Reportid=#{id}
+    </delete>
+    <select id="findAllReportByPage" resultType="com.Drake.SSM_sys.bean.Report">
+        SELECT * FROM Report
+    </select>
+    <select id="findReportById" parameterType="int" resultType="com.Drake.SSM_sys.bean.Report">
+          SELECT * FROM Report where  reportid=#{reportid}
+    </select>
+    <update id="updateReport" parameterType="com.Drake.SSM_sys.bean.Report">
+        update  Report set comefromidlevel=#{comefromidlevel},traffic=#{traffic},temperature=#{temperature},
+        acidresults=#{acidresults},acidresults=#{acidresults},quarantinelocation=#{quarantinelocation}
+        quarantinedays=#{quarantinedays},finalacidresults=#{finalacidresults}
+        where reportid=#{reportid}
+    </update>
+    <insert id="doReport" parameterType="com.Drake.SSM_sys.bean.Report">
+        insert into  Report values (null ,#{comefromidlevel},#{traffic},#{temperature},NULL ,NULL,
+                                    NULL ,NULL ,#{username})
+    </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:contetxt="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/mvc   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--        spring-mvc的配置文件,主要包含页面跳转控制等等...-->
+<!--        包扫描-->
+        <contetxt:component-scan base-package="com.Drake" use-default-filters="false">
+<!--            只扫描controller-->
+            <contetxt:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        </contetxt:component-scan>
+    <!--        两个标配-->
+    <!--    将springmvc处理不了的请求交给tomcat-->
+    <mvc:annotation-driven/>
+    <!--    能支持一下spring-mvc更加高级的功能,如jsr303校验,快捷的ajax-->
+    <mvc:default-servlet-handler/>
+
+<!--配置视图解析器-->
+        <beans>
+            <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix" value="view/"/>
+                <property name="suffix" value=".jsp"/>
+            </bean>
+        </beans>
+
+
+
+</beans>

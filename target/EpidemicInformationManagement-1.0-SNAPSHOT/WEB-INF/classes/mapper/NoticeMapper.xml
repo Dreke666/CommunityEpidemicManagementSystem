@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.NoticeMapper">
+    <insert id="addNotice"  parameterType="com.Drake.SSM_sys.bean.Notice" >
+        insert into  notice values (null ,#{content},#{date},#{publisher})
+    </insert>
+    <delete id="deleteNoticeById" parameterType="int">
+        delete  from notice where  noticeid=#{id}
+    </delete>
+    <select id="findAllNoticeByPage" resultType="com.Drake.SSM_sys.bean.Notice">
+        SELECT * FROM notice
+    </select>
+    <update id="updateNotice" parameterType="com.Drake.SSM_sys.bean.Notice">
+        update  notice set content=#{content},date=#{date},publisher=#{publisher} where noticeid=#{noticeid}
+    </update>
+    <select id="findNoticeById" parameterType="int" resultType="com.Drake.SSM_sys.bean.Notice">
+        select  * from notice where  noticeid=#{noticeid}
+    </select>
+</mapper>

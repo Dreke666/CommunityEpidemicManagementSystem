@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Drake.SSM_sys.dao.AdminMapper">
+    <insert id="addAdmin"  parameterType="com.Drake.SSM_sys.bean.Admin" >
+        insert into  Admin values (null ,#{username},#{password})
+    </insert>
+    <delete id="deleteAdminById" parameterType="int">
+        delete  from admin where  aid=#{id}
+    </delete>
+    <select id="findAllAdminByPage" resultType="com.Drake.SSM_sys.bean.Admin">
+        select * from admin
+    </select>
+    <update id="updateAdmin" parameterType="com.Drake.SSM_sys.bean.Admin">
+        update  admin set username=#{username},password=#{password} where aid=#{id}
+    </update>
+    <select id="adminLogin" parameterType="com.Drake.SSM_sys.bean.Admin" resultType="com.Drake.SSM_sys.bean.Admin">
+        select * from admin where username=#{username} and password =#{password}
+    </select>
+    <select id="findAdminById" parameterType="int" resultType="com.Drake.SSM_sys.bean.Admin">
+         select * from admin where aid=#{aid}
+    </select>
+</mapper>
